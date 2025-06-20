@@ -14,7 +14,7 @@ function HomePage() {
   useEffect(() => {
     const fetchAllHostels = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/hostels');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/hostels`);
         const data = await response.json();
         setHostels(data);
       } catch (error) {
@@ -26,7 +26,7 @@ function HomePage() {
 
   const handleSearch = async (searchData) => {
     try {
-      const response = await fetch('http://localhost:5000/api/hostels/search', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/hostels`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

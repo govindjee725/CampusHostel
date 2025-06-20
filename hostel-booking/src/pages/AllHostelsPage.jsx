@@ -8,7 +8,7 @@ function AllHostels() {
   useEffect(() => {
     const fetchHostels = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/hostels');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/hostels`);
         const data = await response.json();
         setHostels(data);
       } catch (error) {
@@ -20,7 +20,7 @@ function AllHostels() {
 
   const handleSearch = async (searchData) => {
     try {
-      const response = await fetch('http://localhost:5000/api/hostels/search', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/hostels/search`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
