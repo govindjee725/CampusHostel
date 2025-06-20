@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon hostel-backend/server.js",
     "build": "npm install && npm install --prefix hostel-booking && npm run build --prefix hostel-booking",
-    "start": "node hostel-backend/server.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
