@@ -1,7 +1,7 @@
 // server.js (Express backend)
 const express = require("express");
 const cors = require("cors");
-const connectDB = require('./config/db');
+
 const hostelRoutes = require('./routes/hostels'); // Route file (check inside for route syntax)
 const hostels = require('./allhostel/addhostel'); // Sample data
 const path = require('path');
@@ -13,7 +13,7 @@ const _dirname = path.resolve();
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
+
 
 
 // Routes

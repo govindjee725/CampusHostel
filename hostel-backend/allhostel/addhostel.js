@@ -1,7 +1,7 @@
   const { v4: uuidv4 } = require('uuid');
   const hostels = [
   {
-      "id":uuidv4(),
+      "id":uuidv4(), //anandman
       "name": "BY Campus Hostel",                              
       "location": "Knowledge Park 1, Greater Noida",
       "rating": 4.7,
@@ -22,16 +22,16 @@
         "Recreational facilities including indoor and outdoor games"
       ],
       "images": [
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232162/an2_omlvmr.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232165/WhatsApp_Image_2025-05-27_at_23.41.28_934cc51c_a1s4uv.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232165/an1_kuaprf.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232164/WhatsApp_Image_2025-05-27_at_23.41.28_03773040_sxmypq.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232162/single-bedroom-1.jpg.crdownload_jacpbo.jpg"
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461369/an2_vm5znn.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461374/WhatsApp_Image_2025-05-27_at_23.41.28_934cc51c_t8sfrw.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461372/triple-bedroom-1.jpg.crdownload_ff57ck.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461371/single-bedroom-1.jpg.crdownload_qz0yoq.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461367/an1_pa0was.jpg"
       ]
     },
 
   {
-      "id": uuidv4(),	 
+      "id": uuidv4(),	 //ananpurna
       "name": "BY Campus Hostel",
       "location": "Knowledge Park 1, Greater Noida",
       "rating": 4.7,
@@ -52,17 +52,17 @@
         "Games and leisure options both indoor and outdoor"
       ],
       "images": [
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232176/We_ve_got_a_new_b_c_block_right_next_to_the_Annapurna_L_block_just_by_Nukkad_Cafe_and_Dwelling_Hotel._Come_check_it_out_xk2a40.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232172/room-5_rdf5rq.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232171/room-4_ec1mhg.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232169/gallery-pic-7_zcmcma.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232173/We_ve_got_a_new_b_c_block_right_next_to_the_Annapurna_L_block_just_by_Nukkad_Cafe_and_Dwelling_Hotel._Come_check_it_out_1_mbjim5.jpg"
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461453/We_ve_got_a_new_b_c_block_right_next_to_the_Annapurna_L_block_just_by_Nukkad_Cafe_and_Dwelling_Hotel._Come_check_it_out_pd1i7x.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461376/We_ve_got_a_new_b_c_block_right_next_to_the_Annapurna_L_block_just_by_Nukkad_Cafe_and_Dwelling_Hotel._Come_check_it_out_2_glw2sk.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461376/We_ve_got_a_new_b_c_block_right_next_to_the_Annapurna_L_block_just_by_Nukkad_Cafe_and_Dwelling_Hotel._Come_check_it_out_1_uualny.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461375/gallery-pic-8_dneist.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461375/gallery-pic-7_ssi60a.jpg"
       ]
     },
 
 
   {
-      "id": uuidv4(),                                                                    
+      "id": uuidv4(),      //    AR residency                                                             
       "name": "BY Campus Hostel",
       "location": " Knowledge Park 2, Greater Noida",
       "rating": 4.7,
@@ -83,14 +83,14 @@
         "Sports facilities including table tennis, badminton, and more"
       ],
       "images": [
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232182/Frame-17_3_zd6nqd.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232177/1685696805216-300x169-1_qysqgy.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232180/Frame-15_i1j0u3.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232181/Frame-16_aujm6d.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232178/1685696931827-scaled-qguij04xffjzgx82f4yihdf5zcpdiztns1fakhnhp4_f7b1yt.jpg"
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461460/Frame-8_onyyjg.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461459/Frame-24_bynnqa.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461458/Frame-18_kbfviq.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461456/Frame-16_pgvu12.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461453/1685696805216-300x169-1_x61xue.jpg"
       ]  },
 
-    {  "id": uuidv4(),	
+    {  "id": uuidv4(),	//blue heaven
       "name": "BY Campus Hostel",
       "location": " Knowledge Park 2, Greater Noida",
       "rating": 4.7,
@@ -111,17 +111,17 @@
         "Access to both indoor and outdoor sports arenas"
       ],
       "images": [
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232197/lue3_vzpe5z.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232190/blue1_cedypa.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232189/blue_2_wzoly9.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232188/blue_9_ggj6jq.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232193/blue6_kejzec.jpg"
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461461/blue_9_q3ghop.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461460/blue_7_baq0lk.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461460/blue_2_zlcas1.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461463/lue3_n9mpul.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461462/blue8_mcegij.jpg"
       ]
     },
 
 
 
-  {   "id":uuidv4(),	
+  {   "id":uuidv4(),	//casabella
       "name": "BY Campus Hostel",
       "location": " Pari Chowk, Greater Noida",
       "rating": 4.7,
@@ -142,17 +142,17 @@
         "Uninterrupted 24/7 power supply with reliable backup"
       ],
       "images": [
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232204/casa2_uratnl.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232200/casa_1_tvaw4u.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232206/casa4_dbueok.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232213/casa7_pdcszz.jpg",
-        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232215/Frame_4_h5lUD0d_uk074a.jpg"
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461271/casa4_o074lb.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461269/casa_33_gtkvef.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461267/casa2_vlofol.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461268/casa6_svp7lr.jpg",
+        "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461275/Frame_4_h5lUD0d_mcg7k8.jpg"
       ]
     },
 
 
   {
-    "id": uuidv4(),	
+    "id": uuidv4(),	//chicago-kaushalya
     "name": "BY Campus Hostel",
     "location": "Jagat Farm, Greater Noida",
     "rating": 4.7,
@@ -173,16 +173,17 @@
         "Tech-enabled entry with RFID cards"
       ],
     "images": [
-      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232238/ch8_khdais.jpg",
-      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232233/ch6_ntfmvq.jpg",
-      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232217/ch1_dnr8xo.jpg",
-      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232226/ch3_dzio1z.jpg",
+      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461283/shi17_jgcz5j.jpg",
+      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461282/chi7_o4bmqx.jpg",
+      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461287/chi8_nzzhbe.jpg",
+      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461281/chi2_vts3pf.jpg",
+      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461281/chi15_ktau5r.jpg",
     ]
   },
 
 
   {
-    "id": uuidv4(),	
+    "id": uuidv4(),	//chirag pg
     "name": "BY Campus Hostel",
     "location": "Knowledge Park 3, Greater Noida",
     "rating": 4.7,
@@ -203,13 +204,12 @@
         "Round-the-clock responsive student helpline"
       ],
     "images": [
-      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232260/CLB_1_qx1luv.jpg",
-      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232260/CLB_1_qx1luv.jpg",
-      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232258/cb8_hi0enw.jpg",
+      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461297/ch9_hfo7c1.jpg",
+      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461293/ch6_vvczgl.jpg",
+      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749461288/ch8_eedsng.jpg",
       "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232262/CLB_2_cslduv.jpg",
       "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232245/cb3_uxl7mk.jpg",
-      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232248/cb4_w2bd89.jpg",
-      "https://res.cloudinary.com/df6sbdfht/image/upload/v1749232255/cb6_cdkygj.jpg"
+     
     ]
   },
 
