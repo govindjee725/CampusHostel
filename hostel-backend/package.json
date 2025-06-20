@@ -1,0 +1,23 @@
+{
+  "name": "hostel-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon hostel-backend/server.js",
+    "build": "npm install && npm install --prefix hostel-booking && npm run build --prefix hostel-booking",
+    "start": "node hostel-backend/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cloudinary": "^1.41.3",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.14.1",
+    "multer": "^2.0.0",
+    "multer-storage-cloudinary": "^4.0.0",
+    "uuid": "^11.1.0"
+  }
+}
