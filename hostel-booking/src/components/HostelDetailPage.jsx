@@ -8,7 +8,7 @@ function HostelDetailPage() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/hostels/${id}`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/hostels/${id}`)
       .then(res => res.json())
       .then(data => setHostel(data))
       .catch(err => console.error(err));
