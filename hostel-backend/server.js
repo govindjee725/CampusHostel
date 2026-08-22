@@ -1,59 +1,100 @@
-// server.js (Express backend)
+// server.js
+
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
+const fs = require("fs");
 
-const hostelRoutes = require('./routes/hostels'); // Route file (check inside for route syntax)
-const hostels = require('./allhostel/addhostel'); // Sample data
-const path = require('path');
+const connectDB = require("./config/db");
+const hostelRoutes = require("./routes/hostels");
 
 const app = express();
-const _dirname = path.resolve();
 
-// Middleware
-app.use(cors());
+
+// =====================================================
+// MIDDLEWARE
+// =====================================================
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true
+  })
+);
+
 app.use(express.json());
 
 
+// =====================================================
+// DATABASE
+// =====================================================
+
+connectDB();
 
 
-// Routes
-app.get('/api/test', (req, res) => {
-  res.json({ message: "API is working!" });
+// =====================================================
+// TEST API
+// =====================================================
+
+app.get("/api/test", (req, res) => {
+  res.json({
+    success: true,
+    message: "API is working!"
+  });
 });
 
-// Sample hardcoded hostel data (optional — remove if you switch to DB-only)
-app.get("/api/hostels", (req, res) => res.json(hostels));
 
-app.get("/api/hostels/:id", (req, res) => {
-  const hostel = hostels.find(h => h.id == req.params.id);
-  if (hostel) res.json(hostel);
-  else res.status(404).json({ error: "Hostel not found" });
-});
+// =====================================================
+// HOSTEL ROUTES
+// =====================================================
 
-app.post("/api/hostels/search", (req, res) => {
-  const { location } = req.body;
-  const results = hostels.filter(h =>
-    h.location.toLowerCase().includes(location.toLowerCase())
-  );
-  res.json(results);
-});
+// IMPORTANT:
+// All hostel APIs now come from MongoDB
+// through routes/hostels.js
 
-// Modular routes
-app.use('/api/hostels', hostelRoutes);
+app.use("/api/hostels", hostelRoutes);
 
-// Serve frontend (React build)
-const frontendPath = path.join(_dirname, 'hostel-booking/dist');
-const fs = require('fs');
+
+// =====================================================
+// FRONTEND BUILD
+// =====================================================
+
+const frontendPath = path.join(
+  __dirname,
+  "hostel-booking",
+  "dist"
+);
 
 if (fs.existsSync(frontendPath)) {
+
   app.use(express.static(frontendPath));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(frontendPath, 'index.html'));
+
+  app.get("*", (req, res) => {
+    res.sendFile(
+      path.join(frontendPath, "index.html")
+    );
   });
+
 } else {
-  console.warn('⚠️  Frontend build folder not found. Skipping static file serving.');
+
+  console.warn(
+    "⚠️ Frontend build folder not found. Skipping static file serving."
+  );
 }
 
-// Start server
+
+// =====================================================
+// START SERVER
+// =====================================================
+
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Backend running on http://localhost:${PORT}`));
+
+app.listen(PORT, () => {
+
+  console.log(
+    `Backend running on http://localhost:${PORT}`
+  );
+
+});
