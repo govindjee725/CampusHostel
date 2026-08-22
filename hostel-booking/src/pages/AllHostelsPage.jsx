@@ -15,9 +15,9 @@ function AllHostelsPage() {
   useEffect(() => {
     const fetchHostels = async () => {
       try {
-        console.log("Fetching:", `${API_URL}/api/hostels`);
+        console.log("Fetching:", `${API_URL}/hostels`);
 
-        const response = await fetch(`${API_URL}/api/hostels`);
+        const response = await fetch(`${API_URL}/hostels`);
 
         console.log("Response status:", response.status);
 
@@ -62,7 +62,7 @@ function AllHostelsPage() {
       console.log("Searching:", searchData);
 
       const response = await fetch(
-        `${API_URL}/api/hostels/search`,
+        `${API_URL}/hostels/search`,
         {
           method: "POST",
           headers: {

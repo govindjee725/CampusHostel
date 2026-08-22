@@ -21,9 +21,9 @@ function HostelDetailPage() {
         setLoading(true);
         setError("");
 
-        console.log("Fetching hostel:", `${API_URL}/api/hostels/${id}`);
+        console.log("Fetching hostel:", `${API_URL}/hostels/${id}`);
 
-        const response = await fetch(`${API_URL}/api/hostels/${id}`);
+        const response = await fetch(`${API_URL}/hostels/${id}`);
 
         console.log("Response status:", response.status);
 
