@@ -40,9 +40,9 @@ const Footer = () => {
         <div>
           <h4 className="text-white font-semibold text-lg mb-3">Get in Touch</h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="tel:+919690752035" className="hover:text-white transition">📞 +91 9690752035</a></li>
+            <li><a href="tel:+918757894455" className="hover:text-white transition">📞 +91 8757894455</a></li>
             <li><a href="mailto:campushostel01@gmail.com" className="hover:text-white transition">✉️ campushostel01@gmail.com</a></li>
-            <li><a href="https://wa.me/9690752035" className="hover:text-white transition" target="_blank" rel="noopener noreferrer">💬 WhatsApp Chat</a></li>
+            <li><a href="https://wa.me/8757894455" className="hover:text-white transition" target="_blank" rel="noopener noreferrer">💬 WhatsApp Chat</a></li>
           </ul>
         </div>
       </div>
