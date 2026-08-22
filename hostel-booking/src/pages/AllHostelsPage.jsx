@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import HostelCard from "../components/HostelCard";
 import SearchBar from "../components/SearchBar";
 import { Link } from "react-router-dom";
-const API_URL = `${import.meta.env.VITE_API_URL}`;
+const API_URL = import.meta.env.VITE_API_URL;
 
 function AllHostelsPage() {
   const [hostels, setHostels] = useState([]);

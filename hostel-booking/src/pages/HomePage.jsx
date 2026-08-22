@@ -6,7 +6,7 @@ import ConnectionFeatures from "../pages/ConnectionFeatures";
 import ChatIntroSection from "../pages/ChatIntroSection";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = `${import.meta.env.VITE_API_URL}`;
+const API_URL = import.meta.env.VITE_API_URL;
 
 function HomePage() {
   const [hostels, setHostels] = useState([]);

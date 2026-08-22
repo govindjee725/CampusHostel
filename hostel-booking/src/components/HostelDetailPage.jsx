@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const API_URL = `${import.meta.env.VITE_API_URL}`;
+const API_URL = import.meta.env.VITE_API_URL;
 
 function HostelDetailPage() {
   const { id } = useParams();

@@ -38,7 +38,7 @@ const HostelUploadForm = () => {
     }
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/hostels/upload`, data);
+      const res = await axios.post(import.meta.env.VITE_API_URL/api/hostels/upload, data);
       setStatus('Hostel uploaded successfully!');
       console.log('Success:', res.data);
     } catch (err) {
