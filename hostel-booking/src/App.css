@@ -4,6 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
+.input {
+  @apply w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400;
+}
 
 .logo {
   height: 6em;

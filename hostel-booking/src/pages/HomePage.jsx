@@ -12,17 +12,20 @@ function HomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchAllHostels = async () => {
-      try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/hostels`);
-        const data = await response.json();
-        setHostels(data);
-      } catch (error) {
-        console.error('Error fetching all hostels:', error);
-      }
-    };
-    fetchAllHostels();
-  }, []);
+  const fetchAllHostels = async () => {
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/hostels?limit=6`
+      );
+      const data = await res.json();
+      setHostels(data.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  fetchAllHostels();
+}, []);
+
 
   const handleSearch = async (searchData) => {
     try {
@@ -70,7 +73,7 @@ function HomePage() {
                 : hostels
               ).map((hostel) => (
                 <HostelCard
-                  key={hostel.id}
+                  key={hostel._id}
                   {...hostel}
                   image={hostel.images?.[0]}
                 />

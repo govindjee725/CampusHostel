@@ -1,60 +1,144 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const Hostel = require('../models/Hostel');
-const multer = require("multer");
-const { storage } = require("../config/cloudinary");
-const upload = multer({ storage });
+const Hostel = require("../models/Hostel");
+const upload = require("../config/multer");
+const imagekit = require("../config/imagekit");
+const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 
-// ✅ Upload hostel with image
-router.post("/upload", upload.single("image"), async (req, res) => {
+// --------------------
+// CREATE hostel
+// --------------------
+router.post(
+  "/",
+  auth,
+  admin,
+  upload.array("images", 5), // max 5 images
+  async (req, res) => {
+    try {
+      const imageUrls = [];
+
+      if (req.files && req.files.length > 0) {
+        for (const file of req.files) {
+          const result = await imagekit.upload({
+            file: file.buffer,
+            fileName: `${Date.now()}-${file.originalname}`,
+            folder: "/hostels"
+          });
+
+          imageUrls.push(result.url);
+        }
+      }
+
+      const hostel = new Hostel({
+        ...req.body,
+        images: imageUrls
+      });
+
+      const savedHostel = await hostel.save();
+      res.status(201).json(savedHostel);
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
+  }
+);
+
+// --------------------
+// GET all hostels (optional location filter)
+// --------------------
+// GET hostels with pagination & filters
+router.get("/", async (req, res) => {
   try {
-    const { name, location, rating, reviews, discount } = req.body;
-    const hostel = new Hostel({
-      name,
+    const {
+      page = 1,
+      limit = 10,
       location,
-      rating,
-      reviews,
-      discount,
-      image: req.file.path,
+      minPrice,
+      maxPrice,
+      beds,
+      sort
+    } = req.query;
+
+    const query = {};
+
+    // Location filter
+    if (location) {
+      query.location = { $regex: location, $options: "i" };
+    }
+
+    // Price filter
+    if (minPrice || maxPrice) {
+      query.price = {};
+      if (minPrice) query.price.$gte = Number(minPrice);
+      if (maxPrice) query.price.$lte = Number(maxPrice);
+    }
+
+    // Beds filter
+    if (beds) {
+      query.beds = Number(beds);
+    }
+
+    // Sorting
+    let sortOption = { createdAt: -1 }; // default newest
+    if (sort === "price_asc") sortOption = { price: 1 };
+    if (sort === "price_desc") sortOption = { price: -1 };
+
+    const skip = (page - 1) * limit;
+
+    const [hostels, total] = await Promise.all([
+      Hostel.find(query)
+        .sort(sortOption)
+        .skip(skip)
+        .limit(Number(limit)),
+      Hostel.countDocuments(query)
+    ]);
+
+    res.json({
+      total,
+      page: Number(page),
+      pages: Math.ceil(total / limit),
+      count: hostels.length,
+      data: hostels
     });
-    await hostel.save();
-    res.status(201).json(hostel);
-  } catch (error) {
-    res.status(500).json({ message: "Upload failed", error });
-  }
-});
-
-// ✅ Get all or filtered hostels
-router.get('/', async (req, res) => {
-  try {
-    const { location } = req.query;
-    const query = location ? { location: { $regex: location, $options: 'i' } } : {};
-    const hostels = await Hostel.find(query);
-    res.json(hostels);
   } catch (err) {
-    res.status(500).json({ message: 'Server Error', error: err.message });
+    res.status(500).json({ error: err.message });
   }
 });
 
-// ✅ Get by ID
+
+// --------------------
+// GET hostel by ID
+// --------------------
 router.get("/:id", async (req, res) => {
   try {
     const hostel = await Hostel.findById(req.params.id);
-    if (!hostel) return res.status(404).json({ error: "Not found" });
+    if (!hostel) {
+      return res.status(404).json({ error: "Hostel not found" });
+    }
     res.json(hostel);
-  } catch (error) {
-    res.status(500).json({ message: "Server Error", error });
+  } catch (err) {
+    res.status(400).json({ error: "Invalid hostel ID" });
   }
 });
 
-// ✅ Search by location
+// --------------------
+// SEARCH hostel by location (POST)
+// --------------------
 router.post("/search", async (req, res) => {
   try {
     const { location } = req.body;
-    const results = await Hostel.find({ location: { $regex: location, $options: "i" } });
+
+    if (!location) {
+      return res.status(400).json({ error: "Location is required" });
+    }
+
+    const results = await Hostel.find({
+      location: { $regex: location, $options: "i" }
+    });
+
     res.json(results);
-  } catch (error) {
-    res.status(500).json({ message: "Search failed", error });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 

@@ -9,7 +9,8 @@ function HostelList() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/hostels')
+    axios.get(`${import.meta.env.VITE_API_URL/api/hostels}
+      `)
       .then(res => {
         setAllHostels(res.data);
         setFilteredHostels(res.data); // Show all initially

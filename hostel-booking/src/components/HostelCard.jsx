@@ -1,10 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-function HostelCard({ id, name, location, rating, discount, image, price }) {
+function HostelCard({ _id, name, location, rating, discount, image, price }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/hostel/${id}`);
+    navigate(`/hostel/${_id}`);
   };
 
   return (
@@ -20,8 +20,6 @@ function HostelCard({ id, name, location, rating, discount, image, price }) {
       <div className="p-4">
         <h3 className="font-bold text-lg">{name}</h3>
         <p className="text-sm text-gray-600">{location}</p>
-
-        
 
         {discount && (
           <p className="text-red-500 font-semibold mt-2">{discount}</p>
